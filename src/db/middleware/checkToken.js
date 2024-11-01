@@ -6,6 +6,7 @@ async function checkToken(req,res,next) {
     try {
         const secretKey = process.env.JWT_SECRET_KEY;
         const token = req.header("Authorization").replace("Bearer ", "");
+        console.log(secretKey + "    " + token)
         const decodedToken = jwt.verify(token,secretKey);
         console.log(decodedToken);
         const username = decodedToken.username
